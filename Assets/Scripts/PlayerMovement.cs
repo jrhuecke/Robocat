@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
+        /*
         switch (state)
         {
             case State.STATE_STANDING:
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
                     body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
                 }
         }
-        //body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        */
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
     }
 }
