@@ -1,0 +1,1070 @@
+fileFormatVersion: 2
+guid: 6294fa18c14e5c34581ac7ff244cd78d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: robocat spritesheet notail_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 230
+        width: 35
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6df5fa0da913248847dc5ae82ca8f6
+      internalID: 622731630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 227
+        width: 37
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b6a338b7c535643987409bb07fd6fc
+      internalID: -1377656918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 225
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c876018b98a8229459580c924b765b2d
+      internalID: -2045185280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 225
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87494277d2c182b46bd7fbc69adb1c91
+      internalID: -1181633550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 225
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7d2e96a651a5143b134fe68b0cdc60
+      internalID: -218612067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_5
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 228
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f3cda06c232934b9bc87cb79c6314b
+      internalID: -14696189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 205
+        width: 38
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45012af2ad063bf4b9a62d2bf4a53f2b
+      internalID: 1889459766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 202
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07aedfe2aff719c4480b364e6ebf3e9e
+      internalID: 451521896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_8
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 200
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b012bb2cbd1b514da3456272730d46c
+      internalID: -1039447192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 200
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6e0b77757fa774fa328d8cd90fed7a
+      internalID: -1965740469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_10
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 200
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e84f093628483e54bb87005fb6ae8739
+      internalID: 1717610488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_11
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 203
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3720e2260277eba40a240f0b7328d66a
+      internalID: -1113017960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 175
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a03c7c8f9f11e44f8eea159f894ba30
+      internalID: -940038395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 175
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0f2367adca6b046a8f58bb30f824f6
+      internalID: 1816193127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_14
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 175
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b935b42829b8c7749a90e2c24c33986b
+      internalID: 1930961028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_15
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 175
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16ee37e41dd7214e9e709a851674ce7
+      internalID: -1030901819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_16
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 160
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0b7d3d5c5b7304a8c73325c56e7c0a
+      internalID: -391383688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_17
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 160
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7339be913fe91464db296c49c3f89acb
+      internalID: 866827037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 150
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d3fdcf0aecaa34a81fb39d78c4c33c
+      internalID: 692121603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_19
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 150
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850e06e29eceb2c458b131e4aca6cb91
+      internalID: 934781362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 150
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe95bf20a1e97e64b87914465b45ca85
+      internalID: 1652582947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_21
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 150
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47700200ba4d4d042a878aaa417f57fb
+      internalID: 1768611897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_22
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 129
+        width: 12
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcfa2eec6a8e17448ac7f05f208eb0ba
+      internalID: -2001084243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_23
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 128
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9a71fbc5cc3b745be56a66d4464ecf
+      internalID: 435291341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_24
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 128
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a8a7b8ad224cc4593e5dea11cd2002
+      internalID: 78000974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_25
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 125
+        width: 37
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782ed93ce97c3be48ad55b30d8736685
+      internalID: 1006843928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_26
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 126
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c72654b747a3114381c6137bd669de0
+      internalID: -39362053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_27
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 126
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d4d8106d2c58e42bbe1e4effdcfb6d
+      internalID: -719270689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_28
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 104
+        width: 38
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3989e88de610fc047a2eb71ee81d95a2
+      internalID: -815708428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_29
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 104
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b124827dd87da4bb2c2cad3075abff
+      internalID: -1292895103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_30
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 103
+        width: 36
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de69165ff374b74bbfa7be415251651
+      internalID: -28113636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_31
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 82
+        width: 12
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cdae3ee14fdd64c9fea12d3edd8450
+      internalID: 741102334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_32
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 96
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6304aaa01518e0c45a09bc534d6af426
+      internalID: -348601446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e585ef0e6cce8f4da73858a08f0e87e
+      internalID: -346168278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_34
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 77
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6911bf7bb93d256429a3337bd9c0391d
+      internalID: 1475157802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_35
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 74
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2eb92bb5c55cbf4795fea9a03c5677f
+      internalID: 1470899775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_36
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 72
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f1168aab349c84ebb41616ebbad5ff
+      internalID: -649555873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_37
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 70
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd8b216350285248bb4f1a710c6f63e
+      internalID: -1693300754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_38
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 64
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da737f12a21076c46b21b86d7f5ae142
+      internalID: -1731868406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_39
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 64
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379d5b9114bf9684baf56cbfb5c1b525
+      internalID: 1457936874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_42
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9d2379ab505d9448a8dfc54a3a7513
+      internalID: 2047328200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet notail_45
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 24
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54facd14fc92a04d9f1b71be4125f32
+      internalID: -377643547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      robocat spritesheet notail_48: -2142140518
+      robocat spritesheet notail_7: 451521896
+      robocat spritesheet notail_42: 2047328200
+      robocat spritesheet notail_43: 255603639
+      robocat spritesheet notail_46: -956266646
+      robocat spritesheet notail_20: 1652582947
+      robocat spritesheet notail_36: -649555873
+      robocat spritesheet notail_8: -1039447192
+      robocat spritesheet notail_39: 1457936874
+      robocat spritesheet notail_53: -1263440359
+      robocat spritesheet notail_33: -346168278
+      robocat spritesheet notail_17: 866827037
+      robocat spritesheet notail_45: -377643547
+      robocat spritesheet notail_35: 1470899775
+      robocat spritesheet notail_51: 316221389
+      robocat spritesheet notail_0: 622731630
+      robocat spritesheet notail_23: 435291341
+      robocat spritesheet notail_32: -348601446
+      robocat spritesheet notail_16: -391383688
+      robocat spritesheet notail_25: 1006843928
+      robocat spritesheet notail_9: -1965740469
+      robocat spritesheet notail_30: -28113636
+      robocat spritesheet notail_13: 1816193127
+      robocat spritesheet notail_47: 355072309
+      robocat spritesheet notail_21: 1768611897
+      robocat spritesheet notail_37: -1693300754
+      robocat spritesheet notail_12: -940038395
+      robocat spritesheet notail_15: -1030901819
+      robocat spritesheet notail_44: 1801939511
+      robocat spritesheet notail_18: 692121603
+      robocat spritesheet notail_34: 1475157802
+      robocat spritesheet notail_24: 78000974
+      robocat spritesheet notail_5: -14696189
+      robocat spritesheet notail_14: 1930961028
+      robocat spritesheet notail_49: -226323864
+      robocat spritesheet notail_28: -815708428
+      robocat spritesheet notail_38: -1731868406
+      robocat spritesheet notail_10: 1717610488
+      robocat spritesheet notail_27: -719270689
+      robocat spritesheet notail_40: 491617776
+      robocat spritesheet notail_4: -218612067
+      robocat spritesheet notail_22: -2001084243
+      robocat spritesheet notail_3: -1181633550
+      robocat spritesheet notail_26: -39362053
+      robocat spritesheet notail_6: 1889459766
+      robocat spritesheet notail_52: 307546331
+      robocat spritesheet notail_2: -2045185280
+      robocat spritesheet notail_50: -1444461743
+      robocat spritesheet notail_29: -1292895103
+      robocat spritesheet notail_19: 934781362
+      robocat spritesheet notail_11: -1113017960
+      robocat spritesheet notail_41: 933394839
+      robocat spritesheet notail_1: -1377656918
+      robocat spritesheet notail_31: 741102334
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
