@@ -120,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 break;
-
         }
     }
     private bool onGround()
