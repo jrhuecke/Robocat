@@ -3125,7 +3125,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2088542959}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: aa93bbeedc3347341b73bf39129ec9bd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3154,12 +3154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ac1240f80ca0947bc3b75a5a437735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  maxSpeed: 10
+  acceleration: 50
+  decelartion: 10
   jumpSpeed: 8
+  jumpBuffer: 0.15
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpBuffer: 0.1
 --- !u!95 &2088542965
 Animator:
   serializedVersion: 4
