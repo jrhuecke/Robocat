@@ -15,20 +15,29 @@ public class PlayerMovement : MonoBehaviour
         WALL_JUMPING,
         EXPLODING,
     }
+
+    //Movement variables
     [SerializeField] private float maxSpeed;
     [SerializeField] private float acceleration;
-    [SerializeField] private float decelartion;
+    [SerializeField] private float groundDrag;
+    private float horizontalInput;
+    private bool changingDirection;
+
+    //Jumping variables
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpBuffer;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float airDrag;
+    [SerializeField] private float fallMultiplier;
+    [SerializeField] private float lowJumpMultiplier;
     private float jumpBufferTimer;
+
+
+    //Player/Game Components components
+    [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D playerCollider;
     private State state;
-    private float horizontalInput;
-    private bool changingDirection;
-
 
     private void Awake()
     {
@@ -40,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update()
     {
-        //Stores current left/right arrow input as: -1, 0, or 1 where -1 is left, 0 is nothing, and 1 is right
+        //Stores current left/right arrow input as: -1, 0, or 1 where -1 is left, 0 is nothing, and 1 is right, used for choosing direction to move player
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
         //jump buffer (stores jump so that they can press jump right before they hit the ground)
@@ -64,11 +73,27 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput < -0.01f)
         {
             transform.localScale = new Vector3(-4, 4, 4);
-        }   
+        }
+        
+
+        
     }
 
     private void FixedUpdate()
     {
+        //applies drag to player (needs to happen regardless of state)
+        if (onGround())
+        {
+            ApplyGroundDrag();
+        }
+        else
+        {
+            ApplyAirDrag();
+        }
+
+        //adjusts players fall speed (player can be falling while in multiple different states)
+        AdjustFallSpeed();
+
         switch (state)
         {
             case State.STANDING:
@@ -79,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
                     jumpBufferTimer = 0;
                     anim.SetBool("Standing", false);
                     anim.SetBool("Jumping", true);
-                    body.velocity = new Vector2(body.velocity.x, jumpSpeed);
+                    Jump();
                     print(state);
                 }
                 //checks if player is starting to move
@@ -89,38 +114,35 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("Standing", false);
                     anim.SetBool("Running", true);
                     MovePlayer();
-                    ApplyDrag();
                     print(state);
                 }
                 break;
 
             case State.RUNNING:
                 MovePlayer();
-                ApplyDrag();
-                //checks if player has stopped moving. Checks if left/right are being pressed down on top of horizontalinput
-                //so that the standing animation doesnt play when changing directions while running
-                if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && horizontalInput == 0)
-                {
-                    state = State.STANDING;
-                    anim.SetBool("Running", false);
-                    anim.SetBool("Standing", true);
-                    print(state);
-                }
                 //checks if player is starting to jump
-                else if (jumpBufferTimer > 0 && onGround())
+                if (jumpBufferTimer > 0 && onGround())
                 {
                     state = State.JUMPING;
                     jumpBufferTimer = 0;
                     anim.SetBool("Running", false);
                     anim.SetBool("Jumping", true);
-                    body.velocity = new Vector2(body.velocity.x, jumpSpeed);
+                    Jump();
                     print(state);
                 }
+                //checks if player has stopped moving. Checks if left/right are being pressed down as well as horizontalinput
+                //so that the standing animation doesnt play when changing directions
+                else if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && horizontalInput == 0)
+                {
+                    state = State.STANDING;
+                    anim.SetBool("Running", false);
+                    anim.SetBool("Standing", true);
+                    print(state);   
+                }       
                 break;
 
             case State.JUMPING:
                 MovePlayer();
-                ApplyDrag();
                 //checks if player is back on the ground, also checks velocity that way it doesnt trigger on the first frames of the jump
                 if (onGround() && body.velocity.y <= 0)
                 {
@@ -143,7 +165,32 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ApplyDrag()
+    private void Jump()
+    {
+        //applies upward force to player (impulse makes it instant)
+        body.velocity = new Vector2(body.velocity.x, 0f);
+        body.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+    }
+
+    private void AdjustFallSpeed()
+    {
+        //makes player fall faster that way jump is less floaty
+        if (body.velocity.y < 0)
+        {
+            body.gravityScale = fallMultiplier;
+        } 
+        //allows play to do short jumps by increasing gravity when they let go of jump
+        else if (body.velocity.y > 0 && !Input.GetKey(KeyCode.UpArrow)) {
+            body.gravityScale = lowJumpMultiplier;
+        }
+        //resets player gravity when not jumping
+        else
+        {
+            body.gravityScale = 1f;
+        }
+    }
+
+    private void ApplyGroundDrag()
     {
         //checks if the player is currently trying to change directions by comparing player velocity to current input
         if ((body.velocity.x > 0f && horizontalInput < 0f) || (body.velocity.y < 0f && horizontalInput > 0f))
@@ -156,14 +203,19 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //applies drag when the player is not inputting left/right or when the player is trying to change directions
-        if (Mathf.Abs(horizontalInput) < 1f || changingDirection)
+        if (Mathf.Abs(horizontalInput) < 0.8f || changingDirection)
         {
-            body.drag = decelartion;
+            body.drag = groundDrag;
         }
         else
         {
             body.drag = 0f;
         }
+    }
+
+    private void ApplyAirDrag()
+    {
+        body.drag = airDrag;
     }
 
     private bool onGround()
@@ -172,4 +224,6 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.05f, groundLayer);
         return raycastHit.collider != null;
     }
+
+    
 }
