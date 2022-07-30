@@ -17,7 +17,7 @@ public class PlatformMovement : MonoBehaviour
         movingRight = true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (movingRight)
         {
@@ -26,7 +26,7 @@ public class PlatformMovement : MonoBehaviour
                 movingRight = false;
             } else
             {
-                platform.position = new Vector3(platform.position.x + (speed * Time.deltaTime), platform.position.y, platform.position.z);
+                platform.position = new Vector3(platform.position.x + (speed/100), platform.position.y, platform.position.z);
             }
         } else
         {
@@ -36,8 +36,25 @@ public class PlatformMovement : MonoBehaviour
             }
             else
             {
-                platform.position = new Vector3(platform.position.x - (speed * Time.deltaTime), platform.position.y, platform.position.z);
+                platform.position = new Vector3(platform.position.x - (speed/100), platform.position.y, platform.position.z);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+
+            collision.transform.parent = transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.transform.parent = null;
         }
     }
 }

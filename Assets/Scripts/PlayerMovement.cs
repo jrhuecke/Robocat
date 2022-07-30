@@ -93,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
 
         //adjusts players fall speed (player can be falling while in multiple different states)
         AdjustFallSpeed();
+        
+        //check if player is inputting regardless of state
+        MovePlayer();
 
         switch (state)
         {
@@ -113,13 +116,11 @@ public class PlayerMovement : MonoBehaviour
                     state = State.RUNNING;
                     anim.SetBool("Standing", false);
                     anim.SetBool("Running", true);
-                    MovePlayer();
                     print(state);
                 }
                 break;
 
             case State.RUNNING:
-                MovePlayer();
                 //checks if player is starting to jump
                 if (jumpBufferTimer > 0 && onGround())
                 {
@@ -142,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case State.JUMPING:
-                MovePlayer();
+           
                 //checks if player is back on the ground, also checks velocity that way it doesnt trigger on the first frames of the jump
                 if (onGround() && body.velocity.y <= 0)
                 {
@@ -168,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         //applies upward force to player (impulse makes it instant)
+        body.drag = airDrag;
         body.velocity = new Vector2(body.velocity.x, 0f);
         body.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
     }
@@ -193,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyGroundDrag()
     {
         //checks if the player is currently trying to change directions by comparing player velocity to current input
-        if ((body.velocity.x > 0f && horizontalInput < 0f) || (body.velocity.y < 0f && horizontalInput > 0f))
+        if ((body.velocity.x > 0f && horizontalInput < 0f) || (body.velocity.x < 0f && horizontalInput > 0f))
         {
             changingDirection = true;
         }
@@ -224,6 +226,4 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.05f, groundLayer);
         return raycastHit.collider != null;
     }
-
-    
 }
