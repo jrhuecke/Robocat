@@ -26,10 +26,12 @@ public class PlayerMovement : MonoBehaviour
     //Jumping variables
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpBuffer;
+    [SerializeField] private float coyoteTimeBuffer;
     [SerializeField] private float airDrag;
     [SerializeField] private float fallMultiplier;
     [SerializeField] private float lowJumpMultiplier;
     private float jumpBufferTimer;
+    private float onGroundTimer;
 
 
     //Player/Game Components components
@@ -62,6 +64,19 @@ public class PlayerMovement : MonoBehaviour
             if (jumpBufferTimer >= 0)
             {
                 jumpBufferTimer -= Time.deltaTime;
+            }
+        }
+
+        //allows for coyote time (lets player jump for a short period of time after leaving a platform)
+        if (onGround())
+        {
+            onGroundTimer = coyoteTimeBuffer;
+        }
+        else
+        {
+            if (onGroundTimer >= 0)
+            {
+                onGroundTimer -= Time.deltaTime;
             }
         }
 
@@ -101,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case State.STANDING:
                 //checks if player is starting to jump
-                if (jumpBufferTimer > 0 && onGround())
+                if (jumpBufferTimer > 0 && onGroundTimer > 0)
                 {
                     state = State.JUMPING;
                     jumpBufferTimer = 0;
@@ -122,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
             case State.RUNNING:
                 //checks if player is starting to jump
-                if (jumpBufferTimer > 0 && onGround())
+                if (jumpBufferTimer > 0 && onGroundTimer > 0)
                 {
                     state = State.JUMPING;
                     jumpBufferTimer = 0;
@@ -158,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+        //adds force to the player until they have reached a max speed
         body.AddForce(new Vector2(horizontalInput, 0f) * acceleration);
         
         if (Mathf.Abs(body.velocity.x) > maxSpeed)

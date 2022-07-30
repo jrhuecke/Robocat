@@ -19,6 +19,7 @@ public class PlatformMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //moves the platform left and right based off a speed and distance
         if (movingRight)
         {
             if (platform.position.x > center + distance)
@@ -41,6 +42,7 @@ public class PlatformMovement : MonoBehaviour
         }
     }
 
+    //Makes it so the player moves along with the platform by making the player a child of the platform when they collide with it
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")

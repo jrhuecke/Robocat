@@ -3186,6 +3186,7 @@ MonoBehaviour:
   groundDrag: 10
   jumpSpeed: 11
   jumpBuffer: 0.15
+  coyoteTimeBuffer: 0.1
   airDrag: 2
   fallMultiplier: 4
   lowJumpMultiplier: 6
