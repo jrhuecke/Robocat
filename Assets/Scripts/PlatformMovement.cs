@@ -47,7 +47,6 @@ public class PlatformMovement : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-
             collision.transform.parent = transform;
         }
     }

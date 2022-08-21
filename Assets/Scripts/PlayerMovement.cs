@@ -89,9 +89,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-4, 4, 4);
         }
-        
-
-        
     }
 
     private void FixedUpdate()
@@ -158,14 +155,51 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case State.JUMPING:
-           
                 //checks if player is back on the ground, also checks velocity that way it doesnt trigger on the first frames of the jump
                 if (onGround() && body.velocity.y <= 0)
                 {
-                    state = State.STANDING;
+                    if (horizontalInput == 0)
+                    {
+                        state = State.STANDING;
+                        anim.SetBool("Jumping", false);
+                        anim.SetBool("Standing", true);
+                        print(state);
+                    } 
+                    else
+                    {
+                        state = State.RUNNING;
+                        anim.SetBool("Jumping", false);
+                        anim.SetBool("Running", true);
+                        print(state);
+                    }
+                }
+                if (jumpBufferTimer > 0)
+                {
+                    state = State.DOUBLE_JUMPING;
+                    Jump();
                     anim.SetBool("Jumping", false);
-                    anim.SetBool("Standing", true);
+                    anim.SetBool("DoubleJumping", true);
                     print(state);
+                }
+                break;
+
+            case State.DOUBLE_JUMPING:
+                if (onGround() && body.velocity.y <= 0)
+                {
+                    if (horizontalInput == 0)
+                    {
+                        state = State.STANDING;
+                        anim.SetBool("DoubleJumping", false);
+                        anim.SetBool("Standing", true);
+                        print(state);
+                    }
+                    else
+                    {
+                        state = State.RUNNING;
+                        anim.SetBool("DoubleJumping", false);
+                        anim.SetBool("Running", true);
+                        print(state);
+                    }
                 }
                 break;
         }

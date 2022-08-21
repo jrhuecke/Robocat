@@ -3183,7 +3183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 10
   acceleration: 50
-  groundDrag: 10
+  groundDrag: 13
   jumpSpeed: 11
   jumpBuffer: 0.15
   coyoteTimeBuffer: 0.1
