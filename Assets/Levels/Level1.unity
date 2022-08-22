@@ -3190,6 +3190,7 @@ MonoBehaviour:
   airDrag: 2
   fallMultiplier: 4
   lowJumpMultiplier: 6
+  slowFallSpeed: 0.7
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

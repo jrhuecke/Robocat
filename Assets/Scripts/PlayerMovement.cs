@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airDrag;
     [SerializeField] private float fallMultiplier;
     [SerializeField] private float lowJumpMultiplier;
+    [SerializeField] private float slowFallSpeed;
     private float jumpBufferTimer;
     private float onGroundTimer;
 
@@ -122,6 +123,15 @@ public class PlayerMovement : MonoBehaviour
                     Jump();
                     print(state);
                 }
+                //checking for double jumping after walking off platform
+                else if (jumpBufferTimer > 0)
+                {
+                    state = State.DOUBLE_JUMPING;
+                    Jump();
+                    anim.SetBool("Standing", false);
+                    anim.SetBool("DoubleJumping", true);
+                    print(state);
+                }
                 //checks if player is starting to move
                 else if (horizontalInput != 0)
                 {
@@ -142,6 +152,17 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetBool("Jumping", true);
                     Jump();
                     print(state);
+                    break;
+                }
+                //checking for double jumping after walking off platform
+                else if (jumpBufferTimer > 0)
+                {
+                    state = State.DOUBLE_JUMPING;
+                    Jump();
+                    anim.SetBool("Running", false);
+                    anim.SetBool("DoubleJumping", true);
+                    print(state);
+                    break;
                 }
                 //checks if player has stopped moving. Checks if left/right are being pressed down as well as horizontalinput
                 //so that the standing animation doesnt play when changing directions
@@ -150,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
                     state = State.STANDING;
                     anim.SetBool("Running", false);
                     anim.SetBool("Standing", true);
-                    print(state);   
+                    print(state);
                 }       
                 break;
 
@@ -173,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
                         print(state);
                     }
                 }
-                if (jumpBufferTimer > 0)
+                else if (jumpBufferTimer > 0)
                 {
                     state = State.DOUBLE_JUMPING;
                     Jump();
@@ -185,6 +206,31 @@ public class PlayerMovement : MonoBehaviour
 
             case State.DOUBLE_JUMPING:
                 if (onGround() && body.velocity.y <= 0)
+                {
+                    if (horizontalInput == 0)
+                    {
+                        state = State.STANDING;
+                        anim.SetBool("DoubleJumping", false);
+                        anim.SetBool("Standing", true);
+                        print(state);
+                    }
+                    else
+                    {
+                        state = State.RUNNING;
+                        anim.SetBool("DoubleJumping", false);
+                        anim.SetBool("Running", true);
+                        print(state);
+                    }
+                }
+                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.UpArrow))
+                {
+                    state = State.SLOW_FALLING;
+                    print(state);
+                }
+                break;
+
+            case State.SLOW_FALLING:
+                if (!Input.GetKey(KeyCode.UpArrow) || (onGround() && body.velocity.y <= 0))
                 {
                     if (horizontalInput == 0)
                     {
@@ -226,8 +272,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void AdjustFallSpeed()
     {
+        if (state == State.SLOW_FALLING)
+        {
+            body.gravityScale = slowFallSpeed;
+        }
         //makes player fall faster that way jump is less floaty
-        if (body.velocity.y < 0)
+        else if (body.velocity.y < 0)
         {
             body.gravityScale = fallMultiplier;
         } 
