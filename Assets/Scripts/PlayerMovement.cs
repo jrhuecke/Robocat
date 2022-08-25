@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
         CLINGING,
         WALL_JUMPING,
         EXPLODING,
+        RESPAWNING
     }
 
     //Movement variables
@@ -33,12 +34,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slowFallSpeed;
     private float jumpBufferTimer;
     private float onGroundTimer;
+    private bool usedDoubleJump;
+
+    //Exploding
+    private float respawnTimer;
+    private float explodingTimer;
+    
 
 
     //Player/Game Components components
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D body;
     private Animator anim;
+    private Transform tf;
     private BoxCollider2D playerCollider;
     private State state;
 
@@ -46,8 +54,11 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        tf = GetComponent<Transform>();
         playerCollider = GetComponent<BoxCollider2D>();
         state = State.STANDING;
+        usedDoubleJump = false;
+        respawnTimer = 0.5f;
     }
     
     private void Update()
@@ -69,9 +80,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //allows for coyote time (lets player jump for a short period of time after leaving a platform)
+        //also resets double jump when on ground
         if (onGround())
         {
             onGroundTimer = coyoteTimeBuffer;
+            usedDoubleJump = false;
         }
         else
         {
@@ -90,6 +103,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(-4, 4, 4);
         }
+
+        if (tf.position.y < -5 && !(state == State.EXPLODING) && !(state == State.RESPAWNING))
+        {
+            Explode();
+        }
     }
 
     private void FixedUpdate()
@@ -106,9 +124,6 @@ public class PlayerMovement : MonoBehaviour
 
         //adjusts players fall speed (player can be falling while in multiple different states)
         AdjustFallSpeed();
-        
-        //check if player is inputting regardless of state
-        MovePlayer();
 
         switch (state)
         {
@@ -118,8 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     state = State.JUMPING;
                     jumpBufferTimer = 0;
-                    anim.SetBool("Standing", false);
-                    anim.SetBool("Jumping", true);
+                    anim.SetTrigger("Jumping");
                     Jump();
                     print(state);
                 }
@@ -128,28 +142,26 @@ public class PlayerMovement : MonoBehaviour
                 {
                     state = State.DOUBLE_JUMPING;
                     Jump();
-                    anim.SetBool("Standing", false);
-                    anim.SetBool("DoubleJumping", true);
+                    anim.SetTrigger("DoubleJumping");
                     print(state);
                 }
                 //checks if player is starting to move
                 else if (horizontalInput != 0)
                 {
                     state = State.RUNNING;
-                    anim.SetBool("Standing", false);
-                    anim.SetBool("Running", true);
+                    anim.SetTrigger("Running");
                     print(state);
                 }
                 break;
 
             case State.RUNNING:
+                MovePlayer();
                 //checks if player is starting to jump
                 if (jumpBufferTimer > 0 && onGroundTimer > 0)
                 {
                     state = State.JUMPING;
                     jumpBufferTimer = 0;
-                    anim.SetBool("Running", false);
-                    anim.SetBool("Jumping", true);
+                    anim.SetTrigger("Jumping");
                     Jump();
                     print(state);
                     break;
@@ -159,8 +171,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     state = State.DOUBLE_JUMPING;
                     Jump();
-                    anim.SetBool("Running", false);
-                    anim.SetBool("DoubleJumping", true);
+                    anim.SetTrigger("DoubleJumping");
                     print(state);
                     break;
                 }
@@ -169,83 +180,131 @@ public class PlayerMovement : MonoBehaviour
                 else if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && horizontalInput == 0)
                 {
                     state = State.STANDING;
-                    anim.SetBool("Running", false);
-                    anim.SetBool("Standing", true);
+                    anim.SetTrigger("Standing");
                     print(state);
-                }       
+                }
                 break;
 
             case State.JUMPING:
+                MovePlayer();
                 //checks if player is back on the ground, also checks velocity that way it doesnt trigger on the first frames of the jump
                 if (onGround() && body.velocity.y <= 0)
                 {
                     if (horizontalInput == 0)
                     {
                         state = State.STANDING;
-                        anim.SetBool("Jumping", false);
-                        anim.SetBool("Standing", true);
+                        anim.SetTrigger("Standing");
                         print(state);
-                    } 
+                    }
                     else
                     {
                         state = State.RUNNING;
-                        anim.SetBool("Jumping", false);
-                        anim.SetBool("Running", true);
+                        anim.SetTrigger("Running");
                         print(state);
                     }
                 }
-                else if (jumpBufferTimer > 0)
+                //checks if player is trying to double jump
+                else if (jumpBufferTimer > 0 && !usedDoubleJump)
                 {
+                    usedDoubleJump = true;
                     state = State.DOUBLE_JUMPING;
                     Jump();
-                    anim.SetBool("Jumping", false);
-                    anim.SetBool("DoubleJumping", true);
+                    anim.SetTrigger("DoubleJumping");
+                    print(state);
+                }
+                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.UpArrow))
+                {
+                    state = State.SLOW_FALLING;
+                    anim.SetTrigger("DoubleJumping");
                     print(state);
                 }
                 break;
 
             case State.DOUBLE_JUMPING:
+                MovePlayer();
+                //checks if player is back on ground
                 if (onGround() && body.velocity.y <= 0)
                 {
                     if (horizontalInput == 0)
                     {
                         state = State.STANDING;
-                        anim.SetBool("DoubleJumping", false);
-                        anim.SetBool("Standing", true);
+                        anim.SetTrigger("Standing");
                         print(state);
                     }
                     else
                     {
                         state = State.RUNNING;
-                        anim.SetBool("DoubleJumping", false);
-                        anim.SetBool("Running", true);
+                        anim.SetTrigger("Running");
                         print(state);
                     }
                 }
+                //checks if player is at the top of their jump should now be slow falling
                 else if (body.velocity.y < 0 && Input.GetKey(KeyCode.UpArrow))
                 {
                     state = State.SLOW_FALLING;
                     print(state);
                 }
+                else if (!Input.GetKey(KeyCode.UpArrow))
+                {
+                    state = State.JUMPING;
+                    anim.SetTrigger("Jumping");
+                    print(state);
+                }
                 break;
 
             case State.SLOW_FALLING:
-                if (!Input.GetKey(KeyCode.UpArrow) || (onGround() && body.velocity.y <= 0))
+                MovePlayer();
+                //Checks if the player wants to stop falling slowly. We want to play the jumping animation here
+                //but keep the player in the double jumping state
+                if (!Input.GetKey(KeyCode.UpArrow))
+                {
+                    state = State.JUMPING;
+                    anim.SetTrigger("Jumping");
+                    print(state);
+                } 
+                //checks if player is back on the ground
+                else if (onGround() && body.velocity.y <= 0)
                 {
                     if (horizontalInput == 0)
                     {
                         state = State.STANDING;
-                        anim.SetBool("DoubleJumping", false);
-                        anim.SetBool("Standing", true);
+                        anim.SetTrigger("Standing");
                         print(state);
                     }
                     else
                     {
                         state = State.RUNNING;
-                        anim.SetBool("DoubleJumping", false);
-                        anim.SetBool("Running", true);
+                        anim.SetTrigger("Running");
                         print(state);
                     }
+                }
+                break;
+
+            case State.EXPLODING:
+                body.velocity = new Vector3(0, 0, 0);
+                if (explodingTimer <= 0)
+                {
+                    state = State.RESPAWNING;
+                    anim.SetTrigger("Jumping");
+                    respawnTimer = 0.5f;
+                    tf.position = new Vector3(0, 0, 0);
+                    print(state);
+                }
+                else
+                {
+                    explodingTimer -= Time.deltaTime;
+                }
+                break;
+
+            case State.RESPAWNING:
+                body.velocity = new Vector3(0, 0, 0);
+                if (respawnTimer <= 0)
+                {
+                    state = State.JUMPING;
+                    print(state);
+                } else
+                {
+                    respawnTimer -= Time.deltaTime;
                 }
                 break;
         }
@@ -272,7 +331,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void AdjustFallSpeed()
     {
-        if (state == State.SLOW_FALLING)
+        //freeze player in air when exploding
+        if (state == State.EXPLODING || state == State.RESPAWNING)
+        {
+            body.gravityScale = 0f;
+        }
+        //propeller slow fall speed
+        else if (state == State.SLOW_FALLING)
         {
             body.gravityScale = slowFallSpeed;
         }
@@ -325,5 +390,13 @@ public class PlayerMovement : MonoBehaviour
         //returns null if there is no collider found 0.05f below player
         RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.05f, groundLayer);
         return raycastHit.collider != null;
+    }
+
+    private void Explode()
+    {
+        state = State.EXPLODING;
+        explodingTimer = 0.25f;
+        anim.SetTrigger("Exploding");
+        print(state);
     }
 }
