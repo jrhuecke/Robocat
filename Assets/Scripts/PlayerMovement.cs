@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float groundDrag;
     private float horizontalInput;
     private bool changingDirection;
+    public bool canMove;
 
     //Jumping variables
     [SerializeField] private float jumpSpeed;
@@ -36,12 +37,10 @@ public class PlayerMovement : MonoBehaviour
     private float onGroundTimer;
     private bool usedDoubleJump;
 
-    //Exploding
+    //Exploding/Respawning
     private float respawnTimer;
     private float explodingTimer;
     
-
-
     //Player/Game Components components
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D body;
@@ -59,12 +58,16 @@ public class PlayerMovement : MonoBehaviour
         state = State.STANDING;
         usedDoubleJump = false;
         respawnTimer = 0.5f;
+        canMove = true;
     }
     
     private void Update()
     {
-        //Stores current left/right arrow input as: -1, 0, or 1 where -1 is left, 0 is nothing, and 1 is right, used for choosing direction to move player
-        horizontalInput = Input.GetAxisRaw("Horizontal");
+        if (state != State.EXPLODING && state != State.RESPAWNING && canMove)
+        {
+            //Stores current left/right arrow input as: -1, 0, or 1 where -1 is left, 0 is nothing, and 1 is right, used for choosing direction to move player
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+        }
 
         //jump buffer (stores jump so that they can press jump right before they hit the ground)
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -104,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-4, 4, 4);
         }
 
+        //Checks if player has fallen off map
         if (tf.position.y < -5 && !(state == State.EXPLODING) && !(state == State.RESPAWNING))
         {
             Explode();
@@ -282,6 +286,7 @@ public class PlayerMovement : MonoBehaviour
 
             case State.EXPLODING:
                 body.velocity = new Vector3(0, 0, 0);
+                //player is in the exploding animation for a set amount of time and then is respawned
                 if (explodingTimer <= 0)
                 {
                     state = State.RESPAWNING;
@@ -298,6 +303,7 @@ public class PlayerMovement : MonoBehaviour
 
             case State.RESPAWNING:
                 body.velocity = new Vector3(0, 0, 0);
+                //holds the player in the air for certain amount of time
                 if (respawnTimer <= 0)
                 {
                     state = State.JUMPING;
