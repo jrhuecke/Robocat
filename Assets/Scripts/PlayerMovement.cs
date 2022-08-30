@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     //Exploding/Respawning
     private float respawnTimer;
     private float explodingTimer;
+    public Vector3 spawnPoint;
     
     //Player/Game Components components
     [SerializeField] private LayerMask groundLayer;
@@ -176,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
                     state = State.DOUBLE_JUMPING;
                     Jump();
                     anim.SetTrigger("DoubleJumping");
+                    usedDoubleJump = true;
                     print(state);
                     break;
                 }
@@ -216,6 +218,7 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetTrigger("DoubleJumping");
                     print(state);
                 }
+                //checks if player is trying to slow fall (this for for when the player has already double jumped)
                 else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space))
                 {
                     state = State.SLOW_FALLING;
@@ -292,7 +295,7 @@ public class PlayerMovement : MonoBehaviour
                     state = State.RESPAWNING;
                     anim.SetTrigger("Jumping");
                     respawnTimer = 0.5f;
-                    tf.position = new Vector3(0, 0, 0);
+                    tf.position = spawnPoint;
                     print(state);
                 }
                 else
