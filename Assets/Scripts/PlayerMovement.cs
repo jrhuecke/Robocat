@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //jump buffer (stores jump so that they can press jump right before they hit the ground)
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space) && canMove)
         {
             jumpBufferTimer = jumpBuffer;
         } 
@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 //checks if player has stopped moving. Checks if left/right are being pressed down as well as horizontalinput
                 //so that the standing animation doesnt play when changing directions
-                else if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && horizontalInput == 0)
+                else if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && horizontalInput == 0)
                 {
                     state = State.STANDING;
                     anim.SetTrigger("Standing");
@@ -216,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetTrigger("DoubleJumping");
                     print(state);
                 }
-                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.UpArrow))
+                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space))
                 {
                     state = State.SLOW_FALLING;
                     anim.SetTrigger("DoubleJumping");
@@ -243,12 +243,12 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
                 //checks if player is at the top of their jump should now be slow falling
-                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.UpArrow))
+                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space))
                 {
                     state = State.SLOW_FALLING;
                     print(state);
                 }
-                else if (!Input.GetKey(KeyCode.UpArrow))
+                else if (!Input.GetKey(KeyCode.Space))
                 {
                     state = State.JUMPING;
                     anim.SetTrigger("Jumping");
@@ -260,7 +260,7 @@ public class PlayerMovement : MonoBehaviour
                 MovePlayer();
                 //Checks if the player wants to stop falling slowly. We want to play the jumping animation here
                 //but keep the player in the double jumping state
-                if (!Input.GetKey(KeyCode.UpArrow))
+                if (!Input.GetKey(KeyCode.Space))
                 {
                     state = State.JUMPING;
                     anim.SetTrigger("Jumping");
@@ -353,7 +353,7 @@ public class PlayerMovement : MonoBehaviour
             body.gravityScale = fallMultiplier;
         } 
         //allows play to do short jumps by increasing gravity when they let go of jump
-        else if (body.velocity.y > 0 && !Input.GetKey(KeyCode.UpArrow)) {
+        else if (body.velocity.y > 0 && !Input.GetKey(KeyCode.Space)) {
             body.gravityScale = lowJumpMultiplier;
         }
         //resets player gravity when not jumping
