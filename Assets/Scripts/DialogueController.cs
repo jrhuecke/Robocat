@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueController : MonoBehaviour
 {
@@ -8,29 +9,57 @@ public class DialogueController : MonoBehaviour
     private bool inRange;
     public PlayerMovement playerMovement;
     private bool Dialoguing;
+    public TextMeshProUGUI dialogueText;
+    private float count;
 
     private void Awake()
     {
         inRange = false;
         Dialoguing = false;
+        count = 1;
     }
 
     private void Update()
     {
         if (Dialoguing)
         {
-            //This is where text will happen
-            playerMovement.canMove = true;
-            Dialoguing = false;
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                switch (count)
+                {
+                    case 1:
+                        dialogueText.text = "Thank you so much for finding me!";
+                        count++;
+                        break;
+                    case 2:
+                        dialogueText.text = "I heard about that terrible accident...";
+                        count++;
+                        break;
+                    case 3:
+                        dialogueText.text = "I hope you get better soon!";
+                        count++;
+                        break;
+                    case 4:
+                        dialogueText.text = "Well, I'll get going now. Thanks again!";
+                        count++;
+                        break;
+                    case 5:
+                        playerMovement.canMove = true;
+                        Dialoguing = false;
+                        this.gameObject.SetActive(false);
+                        break;
+                }
+            }
         }
 
         //When the player is in range check for player input to start dialogue
         else if (inRange)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 playerMovement.canMove = false;
                 Dialoguing = true;
+                dialogueText.text = "Oh! It's RoboCat!";
             }
         }
     }
@@ -40,6 +69,7 @@ public class DialogueController : MonoBehaviour
         
         if (collision.tag == "Player")
         {
+            dialogueText.text = "Press e to talk";
             inRange = true;
         }
     }
@@ -48,6 +78,7 @@ public class DialogueController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            dialogueText.text = "";
             inRange = false;
         }
     }
