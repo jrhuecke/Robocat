@@ -583,7 +583,7 @@ TextureImporter:
         serializedVersion: 2
         x: 183
         y: 129
-        width: 12
+        width: 26
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -770,9 +770,9 @@ TextureImporter:
       name: robocat spritesheet notail_31
       rect:
         serializedVersion: 2
-        x: 183
+        x: 165
         y: 82
-        width: 12
+        width: 30
         height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1008,7 +1008,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      robocat spritesheet notail_1: -1377656918
+      robocat spritesheet notail_48: -2142140518
       robocat spritesheet notail_7: 451521896
       robocat spritesheet notail_42: 2047328200
       robocat spritesheet notail_43: 255603639
@@ -1060,8 +1060,8 @@ TextureImporter:
       robocat spritesheet notail_19: 934781362
       robocat spritesheet notail_11: -1113017960
       robocat spritesheet notail_41: 933394839
+      robocat spritesheet notail_1: -1377656918
       robocat spritesheet notail_31: 741102334
-      robocat spritesheet notail_48: -2142140518
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

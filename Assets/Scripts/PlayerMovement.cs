@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
         DOUBLE_JUMPING,
         SLOW_FALLING,
         CLINGING,
-        WALL_JUMPING,
         EXPLODING,
         RESPAWNING
     }
@@ -33,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallMultiplier;
     [SerializeField] private float lowJumpMultiplier;
     [SerializeField] private float slowFallSpeed;
+    [SerializeField] private float clingingFallSpeed;
+    [SerializeField] private float wallJumpSpeed;
     private float jumpBufferTimer;
     private float onGroundTimer;
     private bool usedDoubleJump;
@@ -98,14 +99,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //chanings which way sprite is facing based on input
-        if (horizontalInput > 0.01f)
+        //chanings which way sprite is facing based on input (doesnt change when player is clinging to a wall)
+        if (state != State.CLINGING)
         {
-            transform.localScale = new Vector3(4, 4, 4);
-        }
-        else if (horizontalInput < -0.01f)
-        {
-            transform.localScale = new Vector3(-4, 4, 4);
+            if (horizontalInput > 0.01f)
+            {
+                transform.localScale = new Vector3(4, 4, 4);
+            }
+            else if (horizontalInput < -0.01f)
+            {
+                transform.localScale = new Vector3(-4, 4, 4);
+            }
         }
 
         //Checks if player has fallen off map
@@ -146,15 +150,26 @@ public class PlayerMovement : MonoBehaviour
                 else if (jumpBufferTimer > 0)
                 {
                     state = State.DOUBLE_JUMPING;
-                    Jump();
+                    jumpBufferTimer = 0;
                     anim.SetTrigger("DoubleJumping");
+                    usedDoubleJump = true;
+                    Jump();
                     print(state);
+                    break;
                 }
                 //checks if player is starting to move
                 else if (horizontalInput != 0)
                 {
                     state = State.RUNNING;
                     anim.SetTrigger("Running");
+                    print(state);
+                }
+                //checking if player is starting to cling to wall
+                else if (onWall())
+                {
+                    state = State.CLINGING;
+                    anim.SetTrigger("Clinging");
+                    body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
                     print(state);
                 }
                 break;
@@ -171,13 +186,22 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                     break;
                 }
+                //checking if player is starting to cling to wall
+                else if (onWall())
+                {
+                    state = State.CLINGING;
+                    anim.SetTrigger("Clinging");
+                    body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+                    print(state);
+                }
                 //checking for double jumping after walking off platform
                 else if (jumpBufferTimer > 0)
                 {
                     state = State.DOUBLE_JUMPING;
-                    Jump();
+                    jumpBufferTimer = 0;
                     anim.SetTrigger("DoubleJumping");
                     usedDoubleJump = true;
+                    Jump();
                     print(state);
                     break;
                 }
@@ -209,6 +233,14 @@ public class PlayerMovement : MonoBehaviour
                         print(state);
                     }
                 }
+                //checking if player is starting to cling to wall
+                else if (onWall())
+                {
+                    state = State.CLINGING;
+                    anim.SetTrigger("Clinging");
+                    body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+                    print(state);
+                }
                 //checks if player is trying to double jump
                 else if (jumpBufferTimer > 0 && !usedDoubleJump)
                 {
@@ -219,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checks if player is trying to slow fall (this for for when the player has already double jumped)
-                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space))
+                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space) && usedDoubleJump)
                 {
                     state = State.SLOW_FALLING;
                     anim.SetTrigger("DoubleJumping");
@@ -245,6 +277,14 @@ public class PlayerMovement : MonoBehaviour
                         print(state);
                     }
                 }
+                //checking if player is starting to cling to wall
+                else if (onWall())
+                {
+                    state = State.CLINGING;
+                    anim.SetTrigger("Clinging");
+                    body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+                    print(state);
+                }
                 //checks if player is at the top of their jump should now be slow falling
                 else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space))
                 {
@@ -268,7 +308,15 @@ public class PlayerMovement : MonoBehaviour
                     state = State.JUMPING;
                     anim.SetTrigger("Jumping");
                     print(state);
-                } 
+                }
+                //checking if player is starting to cling to wall
+                else if (onWall())
+                {
+                    state = State.CLINGING;
+                    anim.SetTrigger("Clinging");
+                    body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+                    print(state);
+                }
                 //checks if player is back on the ground
                 else if (onGround() && body.velocity.y <= 0)
                 {
@@ -284,6 +332,28 @@ public class PlayerMovement : MonoBehaviour
                         anim.SetTrigger("Running");
                         print(state);
                     }
+                }
+                break;
+
+            case State.CLINGING:
+                MovePlayer();
+                //checks if player is no longer on the wall
+                if (!onWall())
+                {
+                    state = State.JUMPING;
+                    anim.SetTrigger("Jumping");
+                    usedDoubleJump = false;
+                    print(state);
+                }
+                //checks if player is trying to wall jump
+                else if (jumpBufferTimer > 0)
+                {
+                    state = State.JUMPING;
+                    jumpBufferTimer = 0;
+                    anim.SetTrigger("Jumping");
+                    usedDoubleJump = false;
+                    WallJump();
+                    print(state);
                 }
                 break;
 
@@ -338,12 +408,33 @@ public class PlayerMovement : MonoBehaviour
         body.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
     }
 
+    private void WallJump()
+    {
+        //launches player diagonally away from wall they are touching
+        body.drag = airDrag;
+        if (clingingLeft())
+        {
+            body.AddForce(new Vector2(1, 1) * wallJumpSpeed, ForceMode2D.Impulse);
+        }
+        else
+        {
+            body.AddForce(new Vector2(-1, 1) * wallJumpSpeed, ForceMode2D.Impulse);
+        }
+        //faces them away from wall
+        transform.localScale = new Vector3(-transform.localScale.x, 4, 4);
+    }
+
     private void AdjustFallSpeed()
     {
         //freeze player in air when exploding
         if (state == State.EXPLODING || state == State.RESPAWNING)
         {
             body.gravityScale = 0f;
+        }
+        //clinging slow fall
+        else if (state == State.CLINGING)
+        {
+            body.gravityScale = clingingFallSpeed;
         }
         //propeller slow fall speed
         else if (state == State.SLOW_FALLING)
@@ -396,9 +487,29 @@ public class PlayerMovement : MonoBehaviour
 
     private bool onGround()
     {
-        //returns null if there is no collider found 0.05f below player
-        RaycastHit2D raycastHit = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.05f, groundLayer);
-        return raycastHit.collider != null;
+        //checks if there are any groundLayer colliders below the player
+        RaycastHit2D raycastHitGround = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.05f, groundLayer);
+        return raycastHitGround.collider != null;
+    }
+
+    private bool onWall()
+    {
+        
+        RaycastHit2D raycastHitWallLeft = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.left, 0.02f, groundLayer);
+        RaycastHit2D raycastHitWallRight = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.right, 0.02f, groundLayer);
+        return ((raycastHitWallLeft.collider != null) || (raycastHitWallRight.collider != null)) && !onGround();
+    }
+
+    private bool clingingRight()
+    {
+        RaycastHit2D raycastHitWallRight = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.right, 0.02f, groundLayer);
+        return raycastHitWallRight.collider != null;
+    }
+
+    private bool clingingLeft()
+    {
+        RaycastHit2D raycastHitWallLeft = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.left, 0.02f, groundLayer);
+        return raycastHitWallLeft.collider != null;
     }
 
     private void Explode()
