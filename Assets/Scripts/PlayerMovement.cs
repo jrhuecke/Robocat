@@ -32,11 +32,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float fallMultiplier;
     [SerializeField] private float lowJumpMultiplier;
     [SerializeField] private float slowFallSpeed;
-    [SerializeField] private float clingingFallSpeed;
-    [SerializeField] private float wallJumpSpeed;
     private float jumpBufferTimer;
     private float onGroundTimer;
     private bool usedDoubleJump;
+
+    //Wall Jump/Cling variables
+    [SerializeField] private float wallJumpSpeed;
+    [SerializeField] private float clingingFallSpeed;
+    [SerializeField] private float clingBuffer;
+    private float clingBufferTimer;
 
     //Exploding/Respawning
     private float respawnTimer;
@@ -116,6 +120,12 @@ public class PlayerMovement : MonoBehaviour
         if (tf.position.y < -5 && !(state == State.EXPLODING) && !(state == State.RESPAWNING))
         {
             Explode();
+        }
+
+        //Counts down the timer used for giving the player a window for wall jumping after they leave a wall
+        if (clingBufferTimer > 0)
+        {
+            clingBufferTimer -= Time.deltaTime;
         }
     }
 
@@ -233,6 +243,12 @@ public class PlayerMovement : MonoBehaviour
                         print(state);
                     }
                 }
+                else if (jumpBufferTimer > 0 && clingBufferTimer > 0)
+                {
+                    jumpBufferTimer = 0;
+                    clingBufferTimer = 0;
+                    WallJump();
+                }
                 //checking if player is starting to cling to wall
                 else if (onWall())
                 {
@@ -343,6 +359,8 @@ public class PlayerMovement : MonoBehaviour
                     state = State.JUMPING;
                     anim.SetTrigger("Jumping");
                     usedDoubleJump = false;
+                    //used to give the player a tiny window to wall jump after leaving the wall
+                    clingBufferTimer = clingBuffer;
                     print(state);
                 }
                 //checks if player is trying to wall jump
@@ -412,6 +430,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //launches player diagonally away from wall they are touching
         body.drag = airDrag;
+        body.velocity = new Vector2(body.velocity.x, 0f);
         if (clingingLeft())
         {
             body.AddForce(new Vector2(1, 1) * wallJumpSpeed, ForceMode2D.Impulse);

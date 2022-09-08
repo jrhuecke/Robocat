@@ -440,8 +440,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5339,8 +5339,9 @@ MonoBehaviour:
   fallMultiplier: 4
   lowJumpMultiplier: 6
   slowFallSpeed: 0.8
-  clingingFallSpeed: 0.6
   wallJumpSpeed: 10
+  clingingFallSpeed: 0.6
+  clingBuffer: 0.1
   spawnPoint: {x: 0, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2

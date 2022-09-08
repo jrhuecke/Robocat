@@ -9,14 +9,35 @@ public class RespawnPointController : MonoBehaviour
     public Vector3 checkpointSpawn;
     private bool inRange;
     public TextMeshProUGUI respawnPointText;
+    private bool checkpointSet;
+    private float checkpointSetTimer;
+
+    private void Awake()
+    {
+        checkpointSet = false;
+    }
 
     private void Update()
     {
-        if (inRange)
+        //Timers used to stop showing "Checkpoint set" text after amount of time
+        if (checkpointSetTimer > 0)
+        {
+            checkpointSetTimer -= Time.deltaTime;
+        }
+        if (checkpointSetTimer <= 0 && checkpointSet)
+        {
+            respawnPointText.text = "";
+        }
+
+        //Setting player's checkpoint
+        if (inRange && !checkpointSet)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                checkpointSet = true;
                 playerMovement.spawnPoint = checkpointSpawn;
+                respawnPointText.text = "Checkpoint set!";
+                checkpointSetTimer = 1.5f;
                 
             }
         }
@@ -26,7 +47,7 @@ public class RespawnPointController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player")
+        if (!checkpointSet && collision.tag == "Player")
         {
             respawnPointText.text = "Press e to sleep";
             inRange = true;
@@ -35,7 +56,7 @@ public class RespawnPointController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (!checkpointSet && collision.tag == "Player")
         {
             respawnPointText.text = "";
             inRange = false;
