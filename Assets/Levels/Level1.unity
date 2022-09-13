@@ -1764,6 +1764,8 @@ MonoBehaviour:
   cameraSpeed: 5
   aheadDistance: 0.25
   player: {fileID: 2088542961}
+  minPos: {x: 3, y: 1, z: 0}
+  maxPos: {x: 10, y: 10, z: 0}
 --- !u!1 &519550090
 GameObject:
   m_ObjectHideFlags: 0
