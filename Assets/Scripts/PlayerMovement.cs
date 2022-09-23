@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     
     //Player/Game Components components
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask spikesLayer;
     private Rigidbody2D body;
     private Animator anim;
     private Transform tf;
