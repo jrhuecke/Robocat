@@ -3504,6 +3504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 2088542964}
   dialogueText: {fileID: 214301902}
+  player: {fileID: 2088542961}
 --- !u!4 &1258648478
 Transform:
   m_ObjectHideFlags: 0
@@ -5536,6 +5537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ac1240f80ca0947bc3b75a5a437735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasTail: 0
+  hasClaws: 0
   maxSpeed: 10
   acceleration: 50
   groundDrag: 13

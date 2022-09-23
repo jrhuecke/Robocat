@@ -11,12 +11,15 @@ public class DialogueController : MonoBehaviour
     private bool Dialoguing;
     public TextMeshProUGUI dialogueText;
     private float count;
+    public Transform player;
+    private Transform cat;
 
     private void Awake()
     {
         inRange = false;
         Dialoguing = false;
         count = 1;
+        cat = GetComponent<Transform>();
     }
 
     private void Update()
@@ -60,6 +63,8 @@ public class DialogueController : MonoBehaviour
                 playerMovement.canMove = false;
                 Dialoguing = true;
                 dialogueText.text = "Oh! It's RoboCat!";
+                player.position = new Vector3(cat.position.x - 2, cat.position.y, player.position.z);
+                player.localScale = new Vector3(Mathf.Abs(player.localScale.x), player.localScale.y, player.localScale.z);
             }
         }
     }

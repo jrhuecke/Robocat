@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
         EXPLODING,
         RESPAWNING
     }
+    //Level variables
+    public bool hasTail;
+    public bool hasClaws;
 
     //Movement variables
     [SerializeField] private float maxSpeed;
@@ -65,6 +69,17 @@ public class PlayerMovement : MonoBehaviour
         usedDoubleJump = false;
         respawnTimer = 0.5f;
         canMove = true;
+
+        //movement bools based on level, only on level3 do you START with an upgrade
+        if (SceneManager.GetActiveScene().name == "Level3")
+        {
+            hasTail = true;
+            hasClaws = false;
+        } else
+        {
+            hasTail = false;
+            hasClaws = false;
+        }
     }
     
     private void Update()
@@ -157,7 +172,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checking for double jumping after walking off platform
-                else if (jumpBufferTimer > 0)
+                else if (hasTail && jumpBufferTimer > 0)
                 {
                     state = State.DOUBLE_JUMPING;
                     jumpBufferTimer = 0;
@@ -175,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checking if player is starting to cling to wall
-                else if (onWall())
+                else if (hasClaws && onWall())
                 {
                     state = State.CLINGING;
                     anim.SetTrigger("Clinging");
@@ -197,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
                     break;
                 }
                 //checking if player is starting to cling to wall
-                else if (onWall())
+                else if (hasClaws && onWall())
                 {
                     state = State.CLINGING;
                     anim.SetTrigger("Clinging");
@@ -205,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checking for double jumping after walking off platform
-                else if (jumpBufferTimer > 0)
+                else if (hasTail && jumpBufferTimer > 0)
                 {
                     state = State.DOUBLE_JUMPING;
                     jumpBufferTimer = 0;
@@ -243,14 +258,15 @@ public class PlayerMovement : MonoBehaviour
                         print(state);
                     }
                 }
-                else if (jumpBufferTimer > 0 && clingBufferTimer > 0)
+                //used for allowing playing to wall jump right after leaving wall
+                else if (hasClaws && jumpBufferTimer > 0 && clingBufferTimer > 0)
                 {
                     jumpBufferTimer = 0;
                     clingBufferTimer = 0;
                     WallJump();
                 }
                 //checking if player is starting to cling to wall
-                else if (onWall())
+                else if (hasClaws && onWall())
                 {
                     state = State.CLINGING;
                     anim.SetTrigger("Clinging");
@@ -258,7 +274,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checks if player is trying to double jump
-                else if (jumpBufferTimer > 0 && !usedDoubleJump)
+                else if (hasTail && jumpBufferTimer > 0 && !usedDoubleJump)
                 {
                     usedDoubleJump = true;
                     state = State.DOUBLE_JUMPING;
@@ -267,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checks if player is trying to slow fall (this for for when the player has already double jumped)
-                else if (body.velocity.y < 0 && Input.GetKey(KeyCode.Space) && usedDoubleJump)
+                else if (hasTail && body.velocity.y < 0 && Input.GetKey(KeyCode.Space) && usedDoubleJump)
                 {
                     state = State.SLOW_FALLING;
                     anim.SetTrigger("DoubleJumping");
@@ -294,7 +310,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
                 //checking if player is starting to cling to wall
-                else if (onWall())
+                else if (hasClaws && onWall())
                 {
                     state = State.CLINGING;
                     anim.SetTrigger("Clinging");
@@ -326,7 +342,7 @@ public class PlayerMovement : MonoBehaviour
                     print(state);
                 }
                 //checking if player is starting to cling to wall
-                else if (onWall())
+                else if (hasClaws && onWall())
                 {
                     state = State.CLINGING;
                     anim.SetTrigger("Clinging");
