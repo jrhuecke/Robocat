@@ -75,11 +75,11 @@ public class PlayerMovement : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Level3")
         {
             hasTail = true;
-            hasClaws = false;
+            hasClaws = true;
         } else
         {
-            hasTail = false;
-            hasClaws = false;
+            hasTail = true;
+            hasClaws = true;
         }
     }
     

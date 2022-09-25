@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -76,9 +76,1167 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: robocat spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 230
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96db6882f3f08f4f8c9adacfcf35a7c
+      internalID: -1220803168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 227
+        width: 44
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c562726664e82304aa7039c0a1bd0a1a
+      internalID: 1424612786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 225
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0469d4c68ebf1484088de2b94b4d1024
+      internalID: 100300508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 225
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88392bb64d16d774eb5d90019f71dcfe
+      internalID: -262630413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 225
+        width: 42
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7405092b84e9d6b41b999da0d088c71c
+      internalID: 916727363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 228
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c242069e0a385934eaa88b02bf5c31ba
+      internalID: 1830796705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 205
+        width: 42
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eeaf0948d6b494419de133ec55522cc
+      internalID: -384578952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 202
+        width: 44
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053e8c4633742c142933b26f14f3ab2a
+      internalID: 1427582992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 200
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60189517a364864395e664195596fe9
+      internalID: -901499354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 200
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bbe3cfc9f31b2547b9637348b749876
+      internalID: -336529259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 200
+        width: 42
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b354cd2afad8ce940b3f1a71ebd2f69d
+      internalID: 1552203806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 203
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3416289f517c4b246bae9358295ae660
+      internalID: -1172824226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 175
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246268ccc9a4d4c4b98b8d5d33a217c1
+      internalID: -1229955550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 175
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce29a8517a507e41a8c63ffcdbd2450
+      internalID: -122768103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 175
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec266ae0b79dfac48b238ec08729a5ad
+      internalID: 1747385509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 175
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ec3299d65f0c5489f52e97a3a39bb1
+      internalID: -521480449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 160
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdc7944bbc2b5774880b80e28019cfd0
+      internalID: -2011995656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 160
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2efc9066bb1f0ad478776cc1a47f705f
+      internalID: 1845174792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 150
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82044c72abf914a409a559a759e87f6d
+      internalID: 487883591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 150
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228eb15f116415740a18d66222968070
+      internalID: -1690704159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 150
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9356d94c72e270f49b1ef49007d7e6b3
+      internalID: 739093879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 150
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc642297213ae841bde1b83df32e78b
+      internalID: -585595622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 122
+        width: 12
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ebfbf9c0a3d5f4e93df37e139c16ca
+      internalID: 1196165747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 128
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05aabf822282b0d46a214e6238cb29cf
+      internalID: 2071573951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 128
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9bafd1316174241a1af26ff5e82127
+      internalID: -1791614076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 125
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63b17a4d0084294b8f94c8a95d3adae
+      internalID: 478141412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 126
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f67859c266acd449aedeef5b29cf30
+      internalID: 1098576626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 126
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0552f081e82d7624d8a5e72be4b7f096
+      internalID: 1543678657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 104
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d3b4ce42280614dbd0850c087424c9
+      internalID: 1118704385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 104
+        width: 44
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbc6a18764809245b091ee5fc0b9a51
+      internalID: -1725089512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 103
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d90aeaa1fedb9a48b311f534e504305
+      internalID: -1740608420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 82
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3207caecb9f155748810d55f524a7b3f
+      internalID: 2027821425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 96
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b39726183d8e78b448378e5699d232da
+      internalID: -2071974335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c6054e15dc6bd346bd69bc5e7e2d71b
+      internalID: 1585276705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 77
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9c4d30de32783d41abd6ca4a1350118
+      internalID: -1602075357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 74
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4270d3262c8da4392bceebe39d6c11
+      internalID: 618445827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 72
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a70d1070fe6f34d80a5350347f051f
+      internalID: -1665363495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 70
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206b56e287067a54ba4457317cd463ba
+      internalID: 916369498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 64
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e55846bf10944547be3007fb010b5bc
+      internalID: -1088109273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 64
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7452668f1010b99408147c6d4dc38be8
+      internalID: 135210110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 38
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c15c32f1d0ff17469d109ce5c95a22b
+      internalID: 65111424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 47
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9338a1dbdeb4734a8c3f34ccacafae0
+      internalID: -1224082596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 48
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2ff13bbeb7e8d44a6f10cedd026ea5
+      internalID: -1120011708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 42
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954186c7c65c50f479fce9cdaadc7967
+      internalID: 1543979504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 41
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e488d36d2a825847b7ba9fd5a16d006
+      internalID: -420794614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 46
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc5c315ea34410459dbd6414275be00
+      internalID: -2080664132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 37
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4a9b7e2bdad2f49aa87597de6cb659
+      internalID: -1816486820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 31
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70d345e16300254cbdbe01491604838
+      internalID: -1098546072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 34
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7b3463d9d63f34dba8d1840938e209
+      internalID: -1389254221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 24
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2349de57ccd207840b7e18e35ddc1a25
+      internalID: -875036941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 28
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67a7e7b3595c034d9c9fa84a4707536
+      internalID: 2020319014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 27
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd1fb95738e11444f80b0ad7c806357d
+      internalID: 23211120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 25
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec6852df13ec9344b375e367df99908
+      internalID: -635647206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robocat spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 24
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a356a99d0db9ca44a38a2375d232810
+      internalID: 983822023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +1247,61 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      robocat spritesheet_15: -521480449
+      robocat spritesheet_5: 1830796705
+      robocat spritesheet_14: 1747385509
+      robocat spritesheet_4: 916727363
+      robocat spritesheet_52: -635647206
+      robocat spritesheet_38: -1088109273
+      robocat spritesheet_35: 618445827
+      robocat spritesheet_11: -1172824226
+      robocat spritesheet_8: -901499354
+      robocat spritesheet_32: -2071974335
+      robocat spritesheet_51: 23211120
+      robocat spritesheet_18: 487883591
+      robocat spritesheet_27: 1543678657
+      robocat spritesheet_17: 1845174792
+      robocat spritesheet_1: 1424612786
+      robocat spritesheet_9: -336529259
+      robocat spritesheet_30: -1740608420
+      robocat spritesheet_45: -2080664132
+      robocat spritesheet_29: -1725089512
+      robocat spritesheet_34: -1602075357
+      robocat spritesheet_36: -1665363495
+      robocat spritesheet_39: 135210110
+      robocat spritesheet_25: 478141412
+      robocat spritesheet_16: -2011995656
+      robocat spritesheet_6: -384578952
+      robocat spritesheet_37: 916369498
+      robocat spritesheet_42: -1120011708
+      robocat spritesheet_20: 739093879
+      robocat spritesheet_31: 2027821425
+      robocat spritesheet_12: -1229955550
+      robocat spritesheet_2: 100300508
+      robocat spritesheet_49: -875036941
+      robocat spritesheet_50: 2020319014
+      robocat spritesheet_10: 1552203806
+      robocat spritesheet_44: -420794614
+      robocat spritesheet_22: 1196165747
+      robocat spritesheet_24: -1791614076
+      robocat spritesheet_48: -1389254221
+      robocat spritesheet_43: 1543979504
+      robocat spritesheet_46: -1816486820
+      robocat spritesheet_13: -122768103
+      robocat spritesheet_21: -585595622
+      robocat spritesheet_41: -1224082596
+      robocat spritesheet_33: 1585276705
+      robocat spritesheet_40: 65111424
+      robocat spritesheet_47: -1098546072
+      robocat spritesheet_19: -1690704159
+      robocat spritesheet_28: 1118704385
+      robocat spritesheet_26: 1098576626
+      robocat spritesheet_0: -1220803168
+      robocat spritesheet_53: 983822023
+      robocat spritesheet_3: -262630413
+      robocat spritesheet_7: 1427582992
+      robocat spritesheet_23: 2071573951
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
