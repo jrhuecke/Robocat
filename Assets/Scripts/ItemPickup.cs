@@ -5,15 +5,15 @@ using TMPro;
 
 public class ItemPickup : MonoBehaviour
 {
-    public SpriteRenderer playerSprite;
     private bool inRange;
     public TextMeshProUGUI itemPickupText;
-    public PlayerMovement playerMovement;
+    public RectTransform itemPickupTextTF;
     private float textTimer;
     private bool displayedText;
     private bool pickedUp;
-    public Sprite tailSprite;
-    public Animator anim;
+    public GameObject newPlayer;
+    public GameObject oldPlayer;
+    public PlayerMovement playerMovement;
 
     private void Awake()
     {
@@ -34,23 +34,37 @@ public class ItemPickup : MonoBehaviour
             displayedText = true;
         }
 
-        //Setting player's checkpoint
+        //checking for player interacting with item
         if (inRange && !pickedUp)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 pickedUp = true;
-                itemPickupText.text = "TAIL!";
-                textTimer = 2.5f;
+                textTimer = 5f;
                 displayedText = true;
-                playerSprite.sprite = tailSprite;
-
-
+                //giving player the upgrades
+                if (gameObject.name == "Tail Pickup")
+                {
+                    itemPickupTextTF.position = new Vector3(itemPickupTextTF.position.x, itemPickupTextTF.position.y + 1, itemPickupTextTF.position.z);
+                    itemPickupText.fontSize = itemPickupText.fontSize * 1.5f;
+                    itemPickupText.text = "Tail restored!\n Press SPACE while jumping to double jump.\n Continue holding SPACE to slow fall.";
+                    newPlayer.transform.position = oldPlayer.transform.position;
+                    newPlayer.transform.localScale = oldPlayer.transform.localScale;
+                    oldPlayer.SetActive(false);
+                    newPlayer.SetActive(true);
+                    playerMovement.hasTail = true;
+                } else if (gameObject.name == "Claws Pickup")
+                {
+                    itemPickupTextTF.position = new Vector3(itemPickupTextTF.position.x, itemPickupTextTF.position.y + 1, itemPickupTextTF.position.z);
+                    itemPickupText.fontSize = itemPickupText.fontSize * 1.5f;
+                    itemPickupText.text = "Claws restored!\n Press LEFT or RIGHT against a wall to cling to it.\n Press SPACE while clinging to wall jump.";
+                    playerMovement.hasClaws = true;
+                }   
             }
         }
     }
 
-    //Checks when player is in range by checking if player is in the cat beds hitbox
+    //Checks when player is in range by checking if player is in the items hitbox
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
