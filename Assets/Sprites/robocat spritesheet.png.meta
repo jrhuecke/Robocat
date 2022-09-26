@@ -359,9 +359,9 @@ TextureImporter:
       name: robocat spritesheet_12
       rect:
         serializedVersion: 2
-        x: 16
+        x: 11
         y: 175
-        width: 30
+        width: 35
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -401,9 +401,9 @@ TextureImporter:
       name: robocat spritesheet_14
       rect:
         serializedVersion: 2
-        x: 114
+        x: 105
         y: 175
-        width: 26
+        width: 35
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -422,9 +422,9 @@ TextureImporter:
       name: robocat spritesheet_15
       rect:
         serializedVersion: 2
-        x: 157
+        x: 152
         y: 175
-        width: 30
+        width: 35
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1272,8 +1272,8 @@ TextureImporter:
       robocat spritesheet_39: 135210110
       robocat spritesheet_25: 478141412
       robocat spritesheet_16: -2011995656
-      robocat spritesheet_6: -384578952
       robocat spritesheet_37: 916369498
+      robocat spritesheet_6: -384578952
       robocat spritesheet_42: -1120011708
       robocat spritesheet_20: 739093879
       robocat spritesheet_31: 2027821425
