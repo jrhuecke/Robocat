@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferTimer;
     private float onGroundTimer;
     private bool usedDoubleJump;
+    private bool justJumped;
 
     //Wall Jump/Cling variables
     [SerializeField] private float wallJumpSpeed;
@@ -82,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
             hasClaws = false;
         }
     }
+
     
     private void Update()
     {
@@ -139,10 +141,11 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Checks if player has hit a spike
-        if (onSpike()) {
+        if (onSpike() && state != State.EXPLODING) 
+        {
             tf.position = new Vector3(tf.position.x, tf.position.y + 0.1f, tf.position.z);
             Explode();
-        }
+        } 
 
         //Counts down the timer used for giving the player a window for wall jumping after they leave a wall
         if (clingBufferTimer > 0)
@@ -250,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
             case State.JUMPING:
                 MovePlayer();
                 //checks if player is back on the ground, also checks velocity that way it doesnt trigger on the first frames of the jump
-                if (onGround() && body.velocity.y <= 0)
+                if (onGround())
                 {
                     if (horizontalInput == 0)
                     {

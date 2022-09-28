@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
             Mathf.Clamp(player.position.z, minPos.z, maxPos.z));
 
         //Makes the camera follow a little ahead of the player
+        print("Camera y: " + boundPosition.y + "Player y: " + player.position.y);
         transform.position = new Vector3(boundPosition.x, boundPosition.y, transform.position.z);
         lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime * cameraSpeed);
     }
