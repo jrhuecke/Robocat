@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -23,20 +24,24 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(boundPosition.x, boundPosition.y, transform.position.z);
         lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime * cameraSpeed);
 
-        if (player.position.x < 75)
+        // scene specific camera movement
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
-            minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 1, Time.deltaTime), minPos.z);
-            maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 1, Time.deltaTime), maxPos.z);
-        }
-        else if (player.position.x > 75 && player.position.x < 138)
-        {
-            minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 5, Time.deltaTime), minPos.z);
-            maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 5, Time.deltaTime), maxPos.z);
-        }
-        else if (player.position.x > 138)
-        {
-            minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 1.5f, Time.deltaTime), minPos.z);
-            maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 1.5f, Time.deltaTime), maxPos.z);
+            if (player.position.x < 75)
+            {
+                minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 1, Time.deltaTime), minPos.z);
+                maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 1, Time.deltaTime), maxPos.z);
+            }
+            else if (player.position.x > 75 && player.position.x < 138)
+            {
+                minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 5, Time.deltaTime), minPos.z);
+                maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 5, Time.deltaTime), maxPos.z);
+            }
+            else if (player.position.x > 138)
+            {
+                minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 1.5f, Time.deltaTime), minPos.z);
+                maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 1.5f, Time.deltaTime), maxPos.z);
+            }
         }
     }
 }
