@@ -39,8 +39,8 @@ public class CameraController : MonoBehaviour
             }
             else if (player.position.x > 138)
             {
-                minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 1.5f, Time.deltaTime), minPos.z);
-                maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 1.5f, Time.deltaTime), maxPos.z);
+                minPos = new Vector3(minPos.x, Mathf.Lerp(minPos.y, 1f, Time.deltaTime), minPos.z);
+                maxPos = new Vector3(maxPos.x, Mathf.Lerp(maxPos.y, 1f, Time.deltaTime), maxPos.z);
             }
         }
     }

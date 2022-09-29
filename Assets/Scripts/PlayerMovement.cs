@@ -141,11 +141,17 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Checks if player has hit a spike
-        if (onSpike() && state != State.EXPLODING) 
+        if (aboveSpike() && state != State.EXPLODING) 
         {
             tf.position = new Vector3(tf.position.x, tf.position.y + 0.1f, tf.position.z);
             Explode();
+        }
+        if (belowSpike() && state != State.EXPLODING) 
+        {
+            tf.position = new Vector3(tf.position.x, tf.position.y - 0.1f, tf.position.z);
+            Explode();
         } 
+        
 
         //Counts down the timer used for giving the player a window for wall jumping after they leave a wall
         if (clingBufferTimer > 0)
@@ -545,9 +551,14 @@ public class PlayerMovement : MonoBehaviour
         return ((raycastHitWallLeft.collider != null) || (raycastHitWallRight.collider != null)) && !onGround();
     }
 
-    private bool onSpike() {
+    private bool aboveSpike() {
         RaycastHit2D raycastHitSpikeDown = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.down, 0.05f, spikesLayer);
         return (raycastHitSpikeDown.collider != null);
+    }
+
+    private bool belowSpike() {
+        RaycastHit2D raycastHitSpikeUp = Physics2D.BoxCast(playerCollider.bounds.center, playerCollider.bounds.size, 0, Vector2.up, 0.05f, spikesLayer);
+        return (raycastHitSpikeUp.collider != null);
     }
 
     private bool clingingRight()
