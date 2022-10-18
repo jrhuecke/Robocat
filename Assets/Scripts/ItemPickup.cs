@@ -14,11 +14,13 @@ public class ItemPickup : MonoBehaviour
     public GameObject newPlayer;
     public GameObject oldPlayer;
     public PlayerMovement playerMovement;
+    private SpriteRenderer pickupSprite;
 
     private void Awake()
     {
         displayedText = false;
         pickedUp = false;
+        pickupSprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -52,12 +54,14 @@ public class ItemPickup : MonoBehaviour
                     newPlayer.transform.localScale = oldPlayer.transform.localScale;
                     oldPlayer.SetActive(false);
                     newPlayer.SetActive(true);
+                    pickupSprite.enabled = false;
                     playerMovement.hasTail = true;
                 } else if (gameObject.name == "Claws Pickup")
                 {
                     itemPickupTextTF.position = new Vector3(itemPickupTextTF.position.x, itemPickupTextTF.position.y + 1, itemPickupTextTF.position.z);
                     itemPickupText.fontSize = itemPickupText.fontSize * 1.5f;
                     itemPickupText.text = "Claws restored!\n Press LEFT or RIGHT against a wall to cling to it.\n Press SPACE while clinging to wall jump.";
+                    pickupSprite.enabled = false;
                     playerMovement.hasClaws = true;
                 }   
             }
